@@ -1,0 +1,9 @@
+/dist
+/bin
+/types
+/node_modules
+server.key
+server.crt
+yarn.lock
+/.idea
+package-lock.json

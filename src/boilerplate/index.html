@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>OGEN Technologies</title>
+</head>
+
+<body class="preload">
+<div id="app">
+    <div class="present">
+        <div id="logo" class="loading appear">
+            <div class="subtitle appear-long">
+                <div class="title">
+                    OGEN-TECHNOLOGIES
+                </div>
+            </div>
+            <div class="message appear-long">
+                <div class="title blinkme">
+                    You connexion is very slow, please wait...
+                </div>
+            </div>
+        </div>
+        <script type="module" src="/src/main.ts"></script>
+    </div>
+</div>
+</body>
+
+</html>
+
+<style type="text/css">
+
+    :root {
+        font-family: sans-serif, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        display: flex;
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    body:not(.preload) #app {
+        flex: 1;
+        display: flex;
+    }
+
+
+    body.preload {
+        /* background-color: #222; */
+        background-color: white;
+        position: absolute;
+
+    }
+
+    body.preload #app {
+        display:flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Arial";
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        //background-color: #151515;
+    }
+    body.preload #app .subtitle span {
+        color: #71cbf3;
+    }
+    body.preload .title {
+        font-size: 35px;
+        font-weight: bold;
+        color: #71cbf3;
+    }
+    body.preload .subtitle {
+        font-size: 12px;
+    }
+    body.preload .message .title {
+        font-size: 12px;
+        font-weight: 400;
+    }
+    body.preload .blinkme {
+        animation: blinker 1s linear infinite;
+        animation-delay: 10s;
+    }
+    body.preload .appear {
+        animation: appear 5s linear;
+    }
+
+    body.preload .appear-long {
+        animation: appear-long 5s linear 3s forwards;
+        opacity: 0;
+    }
+
+    .present {
+        text-align: center;
+    }
+    .present #logo {
+        overflow: hidden;
+        width: 100%;
+        height: 200px;
+        background: transparent;
+        font-size: 35px;
+    }
+
+    @keyframes appear {
+        0% {
+            opacity: 0
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes appear-long {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes blinker {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 1
+        }
+    }
+
+</style>

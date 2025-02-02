@@ -1,0 +1,71 @@
+.with-tooltip {
+    position: relative;
+}
+.v-tooltip--top,
+.v-tooltip--bottom,
+.v-tooltip--left,
+.v-tooltip--right {
+    pointer-events: none;
+}
+/*.v-tooltip--top::after,*/
+.v-tooltip--bottom::after,
+.v-tooltip--left::after,
+.v-tooltip--right::after {
+    content: '';
+}
+/*.v-tooltip--top::before {*/
+/*    inset-block-end: 120%;*/
+/*    inset-inline-start: 50%;*/
+/*    margin-inline-start: -60px;*/
+/*}*/
+
+.v-tooltip--bottom::before {
+    inset-block-start: 120%;
+    inset-inline-start: 50%;
+    margin-inline-start: -60px;
+}
+
+.v-tooltip--left::before {
+    inset-block-end: 0%;
+    inset-inline-end: 120%;
+    min-height: 100%;
+}
+
+.v-tooltip--right::before {
+    inset-block-end: 0%;
+    inset-inline-start: 120%;
+    min-height: 100%;
+}
+
+.v-tooltip--left::after {
+    inset-block-start: 25%;
+    inset-inline-start: -20%;
+    border-color: transparent transparent transparent #5e5d5d;
+}
+
+.v-tooltip--right::after {
+    inset-block-start: 25%;
+    inset-inline-end: -20%;
+    border-color: transparent #5e5d5d transparent transparent;
+}
+
+/*.v-tooltip--top::after {*/
+/*    inset-block-start: -20%;*/
+/*    inset-inline-start: 40%;*/
+/*    border-color: #5e5d5d transparent transparent  transparent;*/
+/*}*/
+/*.v-tooltip--top::after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 100%; !* Ajustez cette valeur en fonction de la taille de la flèche souhaitée *!*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+/*    border-width: 5px;*/
+/*    border-style: solid;*/
+/*    border-color: var(--tooltip-color) transparent transparent transparent; !* Flèche pointant vers le bas *!*/
+/*}*/
+.v-tooltip--bottom::after {
+    inset-block-end: -20%;
+    inset-inline-start: 40%;
+    border-color: transparent transparent #5e5d5d transparent;
+}

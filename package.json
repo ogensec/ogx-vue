@@ -1,0 +1,58 @@
+{
+  "name": "@ogen-technologies/ogen-vue",
+  "version": "1.0.0",
+  "description": "Ogen Vue CLI",
+  "scripts": {
+    "test": "node __test__/encode-decode.js",
+    "clean:bin": "rm -Rf ./bin",
+    "clean:files": "rm -Rf ./bin/xgen-file.js && rm -R ./bin/xgen-symetric.js && rm -R ./xgen-stream.js",
+    "build": "npm run clean:bin && npm run build:cli && npm run build:vue && npm run copy:generator",
+    "build:cli": "npm run generate:cli && npm run copy:templates && npm run copy:boilerplate",
+    "generate:cli": "rollup -c rollup.config.cli.js",
+    "build:vue": "npm run copy:vue",
+    "copy:boilerplate": "cp -R ./src/boilerplate ./bin/boilerplate",
+    "copy:generator": "cp ./src/generate-alias.sh ./bin/generate-alias.sh",
+    "copy:templates": "cp -R ./src/cli/templates ./bin/cli/templates",
+    "copy:vue": "cp -R ./src/vue ./bin/vue",
+    "prepublishOnly": "npm run build",
+    "unpublish": "npm unpublish --registry https://npm.ogen-technologies.com --force @ogen-technologies/ogen-vue"
+  },
+  "publishConfig": {
+    "registry": "https://npm.ogen-technologies.com"
+  },
+  "type": "module",
+  "types": "./bin/cli/types",
+  "main": "./bin/cli/index.cjs",
+  "bin": {
+    "ogen-vue": "./bin/cli/index.cjs"
+  },
+  "files": [
+    "bin/**/*"
+  ],
+  "keywords": [
+    "ogen",
+    "vue",
+    "encryption",
+    "uncryption"
+  ],
+  "author": "OGEN",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/fs-extra": "^11.0.4",
+    "fs-extra": "^11.3.0",
+    "javascript-obfuscator": "^4.1.0",
+    "rollup": "^4.18.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@types/inquirer": "^9.0.7",
+    "axios": "^1.7.9",
+    "inquirer": "^12.3.3"
+  }
+}

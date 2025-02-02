@@ -1,0 +1,61 @@
+{
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true,
+    "require": [
+      "tsconfig-paths/register"
+    ]
+  },
+  "compilerOptions": {
+    //for multiple files
+    //"module": "ESNext",
+    //for unique file
+    "strict": true,
+    "target": "ES6",
+    "module": "ES6",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true, // Générer les fichiers .d.ts
+    "emitDeclarationOnly": false, // Compile only types
+    "declarationDir": "./types",
+    "useDefineForClassFields": true,
+    "lib": [
+      "ESNext",
+      "ES2020",
+      "DOM",
+      "DOM.Iterable",
+      "webworker"
+    ],
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    /* Bundler mode */
+//    "moduleResolution": "bundler",
+//    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+//    "noEmit": true, // Pour ne pas compiler de fichier TS
+    "jsx": "preserve",
+    "sourceMap": true,
+    // for multiple files
+    "outDir": "bin",
+    // for unique file
+    "rootDir": "./src/",
+//    "outFile": "bin/index.js",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@ogen-core": ["./src/vue/core/index.ts"],
+      "@ogen-providers/*": ["./src/vue/providers/*"],
+      "@ogen-components/*": ["./src/vue/components/*"],
+      "@ogen-composables/*": ["./src/vue/composables/*"],
+      "@ogen-plugins/*": ["./src/vue/plugins/*"],
+      "@ogen-directives/*": ["./src/vue/directives/*"],
+      "@ogen-assets/*": ["./src/vue/assets/*"],
+      "@ogen-workers/*": ["./src/vue/workers/*"]
+    }
+  },
+  "exclude": [
+    "bin/**/*",
+    "src/in-work/**"
+  ]
+}

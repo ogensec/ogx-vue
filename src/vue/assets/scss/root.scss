@@ -1,0 +1,97 @@
+$variables: (
+	'text-base',
+	'text-base-reverse',
+	'text-base-darken1',
+	'background-base',
+	'background-element',
+	'primary-base',
+);
+
+
+
+/******************************
+            Root 
+ *****************************/
+
+:root {
+	input:focus {
+		outline: inherit;
+	}
+	
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		margin-right: -15px;
+		margin-left: -15px;
+	}
+
+	[class*='col-'] {
+		padding-right: 15px;
+		padding-left: 15px;
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+
+	.spacer { flex: 1 1 auto }
+}
+
+
+/******************************
+            Mixins
+ *****************************/
+
+
+// Generate color's variables
+@mixin generate-css-variable-classes($variable-names) {
+	@each $variable in $variable-names {
+		.color-#{$variable} {
+			color: var(--#{$variable});
+		}
+		.bg-#{$variable} {
+			background-color: var(--#{$variable});
+		}
+		.border-#{$variable} {
+			border-color: var(--#{$variable});
+		}
+	}
+}
+
+
+
+@mixin generate-delay-classes($start, $end, $step) {
+	@for $i from $start through $end {
+		$delay: $i * $step;
+
+		$delay-str: #{round($delay * 10, 1)};
+
+		.d-#{$delay-str} {
+			animation-delay: #{$delay}s;
+		}
+	}
+}
+
+
+
+@mixin generate-duration-classes($start, $end, $step) {
+	@for $i from $start through $end {
+		$duration: $i * $step;
+
+		$duration-str: #{round($duration * 10, 1)};
+
+		.a-#{$duration-str} {
+			-webkit-animation-duration: #{$duration}s;
+			animation-duration: #{$duration}s;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+		}
+	}
+}
+
+
+
+
+
+@include generate-css-variable-classes($variables);
+@include generate-delay-classes(1, 100, 0.1);
+@include generate-duration-classes(1, 50, 0.1);

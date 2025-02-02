@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./bin/vue",
+    "module": "ESNext",
+    "target": "ESNext",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "preserveSymlinks": true,
+    "noEmit": true,
+    "strict": true,
+    "baseUrl": ".",
+  },
+  "include": ["./src/vue/**/*.ts", "./src/vue/**/*.vue"],
+  "exclude": [
+    "bin/**/*",
+    "src/in-work/**",
+    "src/cli/*",
+    "src/boilerplate/*",
+    "rollup.config.cli.js",
+    "rollup.config.vue.js"
+  ]
+}

@@ -1,0 +1,126 @@
+:root {
+  --app-header-height: 40px;
+  --app-navigation-width: 30px;
+}
+
+.app-header {
+  height: var(--app-header-height);
+  background-color: var(--primary-base);
+  width: 100%;
+  display: flex;
+  padding: 7px;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-navigation-left {
+  position: absolute;
+  z-index: 5;
+  height: calc(100vh - var(--app-header-height));
+  width: var(--app-navigation-width);
+  transition: width 0.2s ease-out, background-color 0.2s ease-out;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: var(--primary-base);
+
+  nav {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 1rem;
+
+        .nav-link {
+
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          color: #ecf0f1;
+          padding: 0.5rem;
+          border-radius: 4px;
+          width: 18px;
+
+          &.router-link-active {
+            background-color: var(--text-base-reverse);
+
+            svg {
+              color: var(--primary-base);
+
+            }
+
+            .dark & {
+              background-color: var(--primary-lighten3);
+              svg {
+                color: white;
+              }
+            }
+          }
+          div {
+            margin-left: 0.5rem;
+            opacity: 0;
+            font-size: 14px;
+            font-family: var(--font-default);
+          }
+        }
+      }
+    }
+  }
+
+  &:hover {
+    width: 200px;
+    background-color: var(--text-base-reverse);
+    border-right: 2px solid var(--primary-base);
+    nav {
+
+      ul {
+        li {
+          .nav-link {
+            color: var(--primary-base);
+            width: auto;
+            &:hover {
+              background-color: var(--primary-lighten3);
+              color: var(--text-base-reverse);
+
+            }
+            div {
+              opacity: 1;
+            }
+            &.router-link-active {
+              background-color: var(--primary-base);
+              color: var(--text-base-reverse);
+              svg {
+                color: var(--text-base-reverse);
+              }
+            }
+
+            .dark & {
+              color: white;
+              svg {
+                color: white;
+              }
+
+              &.router-link-active {
+                background-color: var(--primary-lighten3);
+                color: var(--text-base);
+                svg {
+                  color: var(--text-base);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-body {
+  margin-left: calc(var(--app-navigation-width) * 2);
+  height: calc(100% - var(--app-header-height));
+  padding: 10px;
+
+}
+
